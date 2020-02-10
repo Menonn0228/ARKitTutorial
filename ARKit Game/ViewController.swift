@@ -10,7 +10,13 @@ import UIKit
 import ARKit
 
 class ViewController: UIViewController {
-
+    // MARK: - Properties
+    var counter: Int = 0 {
+        didSet {
+            scoreLabel.text = "\(counter)"
+        }
+    }
+    
     // MARK: - Subviews
     let sceneView = ARSCNView()
     
@@ -55,8 +61,8 @@ class ViewController: UIViewController {
         let myPlane = Plane()
         myPlane.loadModel()
         
-        let xPos = randomPosition(lowerBound: -1.5, upperBound: 1.5)
-        let yPos = randomPosition(lowerBound: -1.5, upperBound: 1.5)
+        let xPos = randomPosition(lowerBound: -100, upperBound: 100)
+        let yPos = randomPosition(lowerBound: -100, upperBound: 100)
         
         myPlane.position = SCNVector3(xPos, yPos, -1)
         
@@ -78,6 +84,26 @@ class ViewController: UIViewController {
         let scene = SCNScene()
         sceneView.scene = scene
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.location(in: sceneView)
+            
+            let hitList = sceneView.hitTest(location, options: nil)
+            
+            if let hitObject = hitList.first {
+                let node = hitObject.node
+                
+                if node.name == "toy_biplane" {
+                    counter += 1
+                    node.removeFromParentNode()
+                    addObject()
+                    
+                }
+            }
+        }
+    }
+    
     
     
     override func viewDidLoad() {
