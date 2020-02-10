@@ -13,6 +13,8 @@
 		EA0AEB9523F1C7470019A073 /* ARKit_Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA0AEB9323F1C7470019A073 /* ARKit_Game.xcdatamodeld */; };
 		EA0AEB9723F1C74B0019A073 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0AEB9623F1C74B0019A073 /* Assets.xcassets */; };
 		EA0AEB9A23F1C74B0019A073 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0AEB9823F1C74B0019A073 /* LaunchScreen.storyboard */; };
+		EA0AEBA223F1D8420019A073 /* toy_biplane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = EA0AEBA123F1D8420019A073 /* toy_biplane.usdz */; };
+		EA0AEBA423F1D89B0019A073 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0AEBA323F1D89B0019A073 /* Plane.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		EA0AEB9623F1C74B0019A073 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA0AEB9923F1C74B0019A073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA0AEB9B23F1C74B0019A073 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA0AEBA123F1D8420019A073 /* toy_biplane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane.usdz; sourceTree = "<group>"; };
+		EA0AEBA323F1D89B0019A073 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,9 @@
 				EA0AEB8A23F1C7470019A073 /* AppDelegate.swift */,
 				EA0AEB8C23F1C7470019A073 /* SceneDelegate.swift */,
 				EA0AEB8E23F1C7470019A073 /* ViewController.swift */,
+				EA0AEBA323F1D89B0019A073 /* Plane.swift */,
 				EA0AEB9623F1C74B0019A073 /* Assets.xcassets */,
+				EA0AEBA123F1D8420019A073 /* toy_biplane.usdz */,
 				EA0AEB9823F1C74B0019A073 /* LaunchScreen.storyboard */,
 				EA0AEB9B23F1C74B0019A073 /* Info.plist */,
 				EA0AEB9323F1C7470019A073 /* ARKit_Game.xcdatamodeld */,
@@ -125,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA0AEBA223F1D8420019A073 /* toy_biplane.usdz in Resources */,
 				EA0AEB9A23F1C74B0019A073 /* LaunchScreen.storyboard in Resources */,
 				EA0AEB9723F1C74B0019A073 /* Assets.xcassets in Resources */,
 			);
@@ -139,6 +146,7 @@
 			files = (
 				EA0AEB8F23F1C7470019A073 /* ViewController.swift in Sources */,
 				EA0AEB8B23F1C7470019A073 /* AppDelegate.swift in Sources */,
+				EA0AEBA423F1D89B0019A073 /* Plane.swift in Sources */,
 				EA0AEB8D23F1C7470019A073 /* SceneDelegate.swift in Sources */,
 				EA0AEB9523F1C7470019A073 /* ARKit_Game.xcdatamodeld in Sources */,
 			);

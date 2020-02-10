@@ -50,6 +50,23 @@ class ViewController: UIViewController {
         ])
     }
     
+    // MARK: - Methods
+    func addObject() {
+        let myPlane = Plane()
+        myPlane.loadModel()
+        
+        let xPos = randomPosition(lowerBound: -1.5, upperBound: 1.5)
+        let yPos = randomPosition(lowerBound: -1.5, upperBound: 1.5)
+        
+        myPlane.position = SCNVector3(xPos, yPos, -1)
+        
+        sceneView.scene.rootNode.addChildNode(myPlane)
+    }
+    
+    func randomPosition(lowerBound lower: Float, upperBound upper: Float) -> Float{
+        return Float(arc4random()) / Float(UInt32.max) * (lower - upper) + upper
+    }
+    
     // MARK: - Configure Scene
     /// Configures the SceneView
     private func configureScene() {
@@ -70,6 +87,9 @@ class ViewController: UIViewController {
         
         // Configure the Scene View
         setScene()
+        
+        // Add the plane
+        addObject()
     }
     
     
