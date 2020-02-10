@@ -67,6 +67,7 @@ class ViewController: UIViewController {
         myPlane.position = SCNVector3(xPos, yPos, -1)
         
         sceneView.scene.rootNode.addChildNode(myPlane)
+        print("Added \(myPlane) to the scene")
     }
     
     func randomPosition(lowerBound lower: Float, upperBound upper: Float) -> Float{
@@ -84,23 +85,24 @@ class ViewController: UIViewController {
         let scene = SCNScene()
         sceneView.scene = scene
     }
-    
+    /// https://stackoverflow.com/questions/46171799/how-to-detect-which-one-object-i-touched-in-sceneview-at-arkitexample
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let location = touch.location(in: sceneView)
+        let touch = touches.first!
+        if(touch.view == self.sceneView) {
             
-            let hitList = sceneView.hitTest(location, options: nil)
+            let touchLocation: CGPoint = touch.location(in: sceneView)
             
-            if let hitObject = hitList.first {
-                let node = hitObject.node
-                
-                if node.name == "toy_biplane" {
-                    counter += 1
-                    node.removeFromParentNode()
-                    addObject()
-                    
-                }
+            let result = sceneView.hitTest(touchLocation, options: nil)
+            guard let touchedNode = result.first?.node else { return }
+            
+            // TouchedNode involves the parts of the plane. First parent is biplane_assembled. Second parent is biplane.
+            
+            if(touchedNode.parent?.parent?.name == "biplane") {
+                sceneView.scene.rootNode.childNodes.first?.removeFromParentNode()
+                counter += 1
+                addObject()
             }
+            
         }
     }
     
