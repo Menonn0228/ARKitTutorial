@@ -7,12 +7,33 @@
 //
 
 import UIKit
+import ARKit
 
 class ViewController: UIViewController {
 
+    // MARK: - Subviews
+    
+    @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var counterLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let scene = SCNScene()
+        sceneView.scene = scene
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let configuration = ARWorldTrackingConfiguration()
+        
+        sceneView.session.run(configuration)
+        
+        
+        
+        
     }
 
 
